@@ -19,6 +19,17 @@
     cd = "z";
   };
   programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.initExtra = ''
+    function yy() {
+      local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+        yazi "$@" --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+          cd -- "$cwd"
+            fi
+            rm -f -- "$tmp"
+    }
+  '';
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -39,6 +50,13 @@
     enable = true;
     enableZshIntegration = true;
   };
+
+  programs.nnn.enable = true;
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.stateVersion = "23.11";
 
   programs.home-manager.enable = true;
