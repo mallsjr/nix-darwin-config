@@ -11,6 +11,10 @@
     tlrc
   ];
 
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
+
   home.shellAliases = {
     vi = "nvim";
     vim = "nvim";
