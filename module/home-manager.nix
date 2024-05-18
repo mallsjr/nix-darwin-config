@@ -12,7 +12,7 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
 
   home.shellAliases = {
@@ -23,6 +23,7 @@
     cd = "z";
   };
   programs.zsh.enable = true;
+  programs.zsh.enableAutosuggestions = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.initExtra = ''
     function yy() {
@@ -33,7 +34,26 @@
             fi
             rm -f -- "$tmp"
     }
+
+    source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh"
   '';
+  programs.zsh.plugins = [
+    {
+      name = "zsh-autosuggestions";
+      src = pkgs.zsh-autosuggestions;
+      # more than likely the file attribute is needed here for the above source calls to not be
+    }
+    {
+      name = "zsh-completions";
+      src = pkgs.zsh-completions;
+    }
+    {
+      name = "zsh-syntax-highlighting";
+      src = pkgs.zsh-syntax-highlighting;
+    }
+  ];
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -57,6 +77,11 @@
 
   programs.nnn.enable = true;
   programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.direnv = {
     enable = true;
     enableZshIntegration = true;
   };
