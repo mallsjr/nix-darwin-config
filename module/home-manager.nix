@@ -21,6 +21,7 @@
     ls = "eza";
     lg = "lazygit";
     cd = "z";
+    l = "ls -l";
   };
   programs.zsh.enable = true;
   programs.zsh.enableAutosuggestions = true;
@@ -38,6 +39,10 @@
     source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
     source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh"
+
+    # Completion styling
+    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+    zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
   '';
   programs.zsh.plugins = [
     {
