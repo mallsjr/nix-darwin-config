@@ -9,6 +9,7 @@
     erdtree
     lazygit
     tlrc
+    fd
   ];
 
   home.sessionVariables = {
@@ -39,10 +40,13 @@
     source "${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
     source "${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
     source "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh"
+    source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh"
+    source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
     # Completion styling
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
   '';
   programs.zsh.plugins = [
     {
@@ -57,6 +61,14 @@
     {
       name = "zsh-syntax-highlighting";
       src = pkgs.zsh-syntax-highlighting;
+    }
+    {
+      name = "zsh-fzf-tab";
+      src = pkgs.zsh-fzf-tab;
+    }
+    {
+      name = "zinit";
+      src = pkgs.zinit;
     }
   ];
   programs.starship = {
