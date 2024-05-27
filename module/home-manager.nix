@@ -11,6 +11,7 @@
     tlrc
     fd
     ripgrep
+    pure-prompt
   ];
 
   home.sessionVariables = {
@@ -62,6 +63,10 @@
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
     zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
     zstyle ':completion:*' menu no
+
+    #Pure prompt
+    autoload -U promptinit; promptinit
+    prompt pure
   '';
   programs.zsh.plugins = [
     {
