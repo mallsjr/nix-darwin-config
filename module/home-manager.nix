@@ -10,6 +10,7 @@
     lazygit
     tlrc
     fd
+    ripgrep
   ];
 
   home.sessionVariables = {
@@ -81,12 +82,13 @@
       src = pkgs.zsh-fzf-tab;
     }
   ];
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  #programs.starship = {
+  #  enable = true;
+  #  enableZshIntegration = true;
+  #};
   programs.eza.enable = true;
   programs.bat.enable = true;
+  programs.bat.config = { theme = "gruvbox-dark"; };
   programs.tmux.enable = true;
   programs.tmux.keyMode = "vi";
   programs.tmux.mouse = true;
