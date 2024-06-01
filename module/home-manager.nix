@@ -3,15 +3,15 @@
 # this just pust the packages in the shell it does not allow to configure.
   home.packages = with pkgs; [
     git 
-    neovim 
-    neofetch 
-    just 
-    erdtree
-    lazygit
-    tlrc
-    fd
-    ripgrep
-    pure-prompt
+      neovim 
+      neofetch 
+      just 
+      erdtree
+      lazygit
+      tlrc
+      fd
+      ripgrep
+      pure-prompt
   ];
 
   home.sessionVariables = {
@@ -39,8 +39,8 @@
             rm -f -- "$tmp"
     }
 
-    # History
-    HISTSIZE=5000
+# History
+  HISTSIZE=5000
     HISTFILE=~/.zsh_history
     SAVEHIST=$HISTSIZE
     HISTDUP=erase
@@ -57,49 +57,49 @@
     source "${pkgs.nix-zsh-completions}/share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh"
     source "${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh"
 
-    # Completion styling
+# Completion styling
     zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
     zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
     zstyle ':completion:*' menu no
 
-    #Pure prompt
+#Pure prompt
     autoload -U promptinit; promptinit
     prompt pure
-  '';
+    '';
   programs.zsh.plugins = [
-    {
-      name = "zsh-autosuggestions";
-      src = pkgs.zsh-autosuggestions;
-      # more than likely the file attribute is needed here for the above source calls to not be
-    }
-    {
-      name = "zsh-completions";
-      src = pkgs.zsh-completions;
-    }
-    {
-      name = "zsh-syntax-highlighting";
-      src = pkgs.zsh-syntax-highlighting;
-    }
-    {
-      name = "zsh-fzf-tab";
-      src = pkgs.zsh-fzf-tab;
-    }
+  {
+    name = "zsh-autosuggestions";
+    src = pkgs.zsh-autosuggestions;
+# more than likely the file attribute is needed here for the above source calls to not be
+  }
+  {
+    name = "zsh-completions";
+    src = pkgs.zsh-completions;
+  }
+  {
+    name = "zsh-syntax-highlighting";
+    src = pkgs.zsh-syntax-highlighting;
+  }
+  {
+    name = "zsh-fzf-tab";
+    src = pkgs.zsh-fzf-tab;
+  }
   ];
-  #programs.starship = {
-  #  enable = true;
-  #  enableZshIntegration = true;
-  #};
+#programs.starship = {
+#  enable = true;
+#  enableZshIntegration = true;
+#};
   programs.eza.enable = true;
   programs.bat.enable = true;
   programs.bat.config = { theme = "gruvbox-dark"; };
   programs.tmux.enable = true;
   programs.tmux.keyMode = "vi";
   programs.tmux.mouse = true;
-	programs.tmux.extraConfig = ''
+  programs.tmux.extraConfig = ''
     set -g default-terminal "screen-256color"
-  '';
+    '';
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
