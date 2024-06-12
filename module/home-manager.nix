@@ -12,7 +12,6 @@
       fd
       ripgrep
       pure-prompt
-      gcc
   ];
 
   home.sessionVariables = {
