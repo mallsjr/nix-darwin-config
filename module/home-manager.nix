@@ -12,6 +12,7 @@
       fd
       ripgrep
       pure-prompt
+      gcc
   ];
 
   home.sessionVariables = {
@@ -27,7 +28,7 @@
     l = "ls -l";
   };
   programs.zsh.enable = true;
-  programs.zsh.enableAutosuggestions = true;
+  programs.zsh.autosuggestion.enable = true;
   programs.zsh.enableCompletion = true;
   programs.zsh.initExtra = ''
     function yy() {
@@ -97,8 +98,12 @@
   programs.tmux.enable = true;
   programs.tmux.keyMode = "vi";
   programs.tmux.mouse = true;
+  programs.tmux.plugins = with pkgs; [
+    tmuxPlugins.gruvbox
+  ];
   programs.tmux.extraConfig = ''
     set -g default-terminal "screen-256color"
+    set-option -g status-position top
     '';
   programs.fzf = {
     enable = true;
