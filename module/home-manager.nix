@@ -25,6 +25,7 @@
     lg = "lazygit";
     cd = "z";
     l = "ls -l";
+    py = "python3";
   };
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
