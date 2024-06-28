@@ -2,7 +2,7 @@
 # add home-manager user settings here
 # this just pust the packages in the shell it does not allow to configure.
   home.packages = with pkgs; [
-    git 
+      git 
       neovim 
       neofetch 
       just 
@@ -12,6 +12,7 @@
       fd
       ripgrep
       pure-prompt
+      glow
   ];
 
   home.sessionVariables = {
