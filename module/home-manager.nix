@@ -129,5 +129,6 @@
 
   home.stateVersion = "23.11";
 
+  programs.vscode.enable = true;
   programs.home-manager.enable = true;
              }

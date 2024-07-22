@@ -15,4 +15,5 @@
   };
   programs.zsh.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
+  nixpkgs.config.allowUnfree = true;
 }
