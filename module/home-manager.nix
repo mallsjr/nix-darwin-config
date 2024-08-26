@@ -13,6 +13,8 @@
       ripgrep
       pure-prompt
       glow
+      delta
+      nodejs_22
   ];
 
   home.sessionVariables = {
