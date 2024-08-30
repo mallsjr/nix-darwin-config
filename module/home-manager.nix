@@ -15,6 +15,7 @@
       glow
       delta
       nodejs_22
+      docker
   ];
 
   home.sessionVariables = {
