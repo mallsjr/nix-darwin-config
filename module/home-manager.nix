@@ -16,6 +16,7 @@
       delta
       nodejs_22
       docker
+      docker-client
   ];
 
   home.sessionVariables = {
